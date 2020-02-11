@@ -278,10 +278,12 @@ def remove_events(service, year, week):
         print(f'{summary} deleted')
 
 
+# TODO: make GUI for better visualisation
+
 if __name__ == '__main__':
     serv = authorize_calendar()
     # remove_events(serv, 2020, 10)
-    schoolplan = AutomaticSchoolPlan(serv, 'BIN-2a', 2020, 9)
+    schoolplan = AutomaticSchoolPlan(serv, 'BIN-2a', 2020, 8)
     schoolplan.login()
     schoolplan.select_schoolplan()
     schoolplan.get_info()
