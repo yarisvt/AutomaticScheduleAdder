@@ -1,3 +1,10 @@
+"""
+Automatically retrieve data from http://schoolplan.han.nl/SchoolplanFT_AS/ and
+add it to your google calendar.
+Author: Yaris van Thiel.
+Version: 1.0
+"""
+
 import datetime
 import time
 from time import sleep
@@ -228,7 +235,8 @@ def get_first_day_of_week(year, week, whichday):
 
 def get_iso_date(date):
     """
-    Gets the ISO 8601 formatted date from a regular date in format 2020-1-3109:00
+    Gets the ISO 8601 formatted date from a regular date in format
+    2020-1-3109:00.
     :param date: A date in format 2020-1-3109:00 (%Y-%m-%d%H:%M).
     :return: The ISO 8601 date format.
     """
@@ -273,10 +281,10 @@ def remove_events(service, year, week):
 if __name__ == '__main__':
     serv = authorize_calendar()
     # remove_events(serv, 2020, 10)
-    r = AutomaticSchoolPlan(serv, 'BIN-2a', 2020, 9)
-    r.login()
-    r.select_schoolplan()
-    r.get_info()
-    r.add_events()
-    r.add_to_calendar()
-    r.exit_page()
+    schoolplan = AutomaticSchoolPlan(serv, 'BIN-2a', 2020, 9)
+    schoolplan.login()
+    schoolplan.select_schoolplan()
+    schoolplan.get_info()
+    schoolplan.add_events()
+    schoolplan.add_to_calendar()
+    schoolplan.exit_page()
